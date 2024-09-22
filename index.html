@@ -1,1 +1,237 @@
-<h>test<h>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เปรียบเทียบ OOP: Java, C++, Python</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>เปรียบเทียบการเขียนโปรแกรมแบบ OOP ใน Java, C++, Python</h1>
+
+    <h2>ความเหมือน</h2>
+    <ul>
+        <li>ทั้งสามภาษาเป็นภาษาที่สนับสนุนการเขียนโปรแกรมเชิงวัตถุ (Object-Oriented Programming - OOP).</li>
+        <li>สนับสนุนหลักการของ OOP ได้แก่:
+            <ul>
+                <li>การสืบทอด (Inheritance)</li>
+                <li>การห่อหุ้ม (Encapsulation)</li>
+                <li>การหลายรูปแบบ (Polymorphism)</li>
+                <li>การแบ่งแยกหน้าที่ (Abstraction)</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>ความแตกต่าง</h2>
+    <h3>Java</h3>
+    <p>- มีการจัดการหน่วยความจำแบบอัตโนมัติ (Garbage Collection).</p>
+    <p>- สนับสนุนการทำงานแบบ cross-platform ผ่าน JVM.</p>
+
+    <h3>C++</h3>
+    <p>- ให้ผู้เขียนโค้ดจัดการหน่วยความจำเอง (manual memory management) ผ่าน pointer.</p>
+    <p>- รองรับทั้งการเขียนแบบ procedural และ OOP.</p>
+
+    <h3>Python</h3>
+    <p>- เป็นภาษาที่มี syntax ที่เรียบง่ายและเข้าใจง่าย.</p>
+    <p>- ไม่มีการประกาศประเภทตัวแปร (dynamic typing).</p>
+
+    <h2>ตัวอย่างโค้ดในแต่ละภาษา</h2>
+
+    <h3>Java</h3>
+    <pre><code>
+class VendingMachine {
+    private String[] items = {"Snack", "Drink", "Candy"};
+    private int[] prices = {50, 20, 10};
+    private int balance = 0;
+
+    public void insertMoney(int amount) {
+        balance += amount;
+        System.out.println("Inserted: " + amount + " Current balance: " + balance);
+    }
+
+    public void selectItem(int itemNumber) {
+        if (itemNumber < 0 || itemNumber >= items.length) {
+            System.out.println("Invalid selection.");
+            return;
+        }
+        if (balance >= prices[itemNumber]) {
+            balance -= prices[itemNumber];
+            System.out.println("Dispensed: " + items[itemNumber] + " Remaining balance: " + balance);
+        } else {
+            System.out.println("Not enough balance. Please insert more money.");
+        }
+    }
+
+    public void returnChange() {
+        System.out.println("Returning change: " + balance);
+        balance = 0;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        VendingMachine vm = new VendingMachine();
+        vm.insertMoney(50);
+        vm.selectItem(0);
+        vm.returnChange();
+    }
+}
+    </code></pre>
+
+    <h3>C++</h3>
+    <pre><code>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+class VendingMachine {
+private:
+    string items[3] = {"Snack", "Drink", "Candy"};
+    int prices[3] = {50, 20, 10};
+    int balance = 0;
+
+public:
+    void insertMoney(int amount) {
+        balance += amount;
+        cout &lt;&lt; "Inserted: " &lt;&lt; amount &lt;&lt; " Current balance: " &lt;&lt; balance &lt;&lt; endl;
+    }
+
+    void selectItem(int itemNumber) {
+        if (itemNumber < 0 || itemNumber >= 3) {
+            cout &lt;&lt; "Invalid selection." &lt;&lt; endl;
+            return;
+        }
+        if (balance >= prices[itemNumber]) {
+            balance -= prices[itemNumber];
+            cout &lt;&lt; "Dispensed: " &lt;&lt; items[itemNumber] &lt;&lt; " Remaining balance: " &lt;&lt; balance &lt;&lt; endl;
+        } else {
+            cout &lt;&lt; "Not enough balance. Please insert more money." &lt;&lt; endl;
+        }
+    }
+
+    void returnChange() {
+        cout &lt;&lt; "Returning change: " &lt;&lt; balance &lt;&lt; endl;
+        balance = 0;
+    }
+};
+
+int main() {
+    VendingMachine vm;
+    vm.insertMoney(50);
+    vm.selectItem(0);
+    vm.returnChange();
+    return 0;
+}
+    </code></pre>
+
+    <h3>Python</h3>
+    <pre><code>
+class VendingMachine:
+    def __init__(self):
+        self.items = ["Snack", "Drink", "Candy"]
+        self.prices = [50, 20, 10]
+        self.balance = 0
+
+    def insert_money(self, amount):
+        self.balance += amount
+        print(f"Inserted: {amount} Current balance: {self.balance}")
+
+    def select_item(self, item_number):
+        if item_number &lt; 0 or item_number &gt;= len(self.items):
+            print("Invalid selection.")
+            return
+        if self.balance &gt;= self.prices[item_number]:
+            self.balance -= self.prices[item_number]
+            print(f"Dispensed: {self.items[item_number]} Remaining balance: {self.balance}")
+        else:
+            print("Not enough balance. Please insert more money.")
+
+    def return_change(self):
+        print(f"Returning change: {self.balance}")
+        self.balance = 0
+
+# Example usage
+vm = VendingMachine()
+vm.insert_money(50)
+vm.select_item(0)
+vm.return_change()
+    </code></pre>
+
+    <h2>สรุปการเปรียบเทียบ</h2>
+    <table>
+        <tr>
+            <th>ลักษณะ</th>
+            <th>Java</th>
+            <th>C++</th>
+            <th>Python</th>
+        </tr>
+        <tr>
+            <td>Syntax</td>
+            <td>ค่อนข้างเป็นทางการ มีโครงสร้างที่ชัดเจน</td>
+            <td>ยืดหยุ่น สามารถเขียนได้ทั้งแบบ OOP และ procedural</td>
+            <td>เรียบง่าย และเข้าใจได้ง่าย</td>
+        </tr>
+        <tr>
+            <td>การจัดการหน่วยความจำ</td>
+            <td>จัดการอัตโนมัติด้วย Garbage Collection</td>
+            <td>จัดการด้วยตัวเอง (manual) ผ่าน pointer</td>
+            <td>จัดการอัตโนมัติด้วย Garbage Collection</td>
+        </tr>
+        <tr>
+            <td>การเข้าถึงข้อมูล</td>
+            <td>ใช้ <code>private</code>, <code>protected</code>, <code>public</code></td>
+            <td>ใช้ <code>private</code>, <code>protected</code>, <code>public</code></td>
+            <td>ทุกอย่างเป็น public โดยปกติ แต่สามารถใช้ _ หรือ __ เพื่อบอกว่าเป็น private</td>
+        </tr>
+        <tr>
+            <td>การใช้งาน Class</td>
+            <td>จำเป็นต้องสร้าง Class ในทุกๆ การทำงานแบบ OOP</td>
+            <td>ยืดหยุ่นกว่าในการเขียนได้ทั้งแบบ procedural และ OOP</td>
+            <td>ใช้ Class ได้อย่างยืดหยุ่นและเข้าใจง่าย</td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
