@@ -281,7 +281,69 @@ int main() {
     </div>
     <p>คลาส Animal ในโค้ดเป็นแบบพิมพ์สำหรับสัตว์ทั่วไป ที่มีเมธอด sound เพื่อแสดงพฤติกรรมในการส่งเสียง</p>
 
-    <!-- Continue with the rest of the sections -->
+    <h1>ข้อ II: การทำความเข้าใจส่วนประกอบของโค้ด</h1>
+
+    <h2>1. Class (คลาส)</h2>
+    <p>คลาสคือแบบพิมพ์ (blueprint) สำหรับการสร้างออบเจ็กต์ ซึ่งเป็นการรวบรวมข้อมูล (attributes) และพฤติกรรม (methods) ไว้ในรูปแบบที่สามารถนำไปใช้สร้างออบเจ็กต์ใหม่ได้ ตัวอย่างในโค้ดคือ:</p>
+    <div class="code-block">
+        <code>class Animal</code>
+    </div>
+    <p>คลาส <code>Animal</code> ในโค้ดเป็นแบบพิมพ์สำหรับสัตว์ทั่วไป ที่มีเมธอด <code>sound</code> เพื่อแสดงพฤติกรรมในการส่งเสียง</p>
+
+    <h2>2. Constructor (เมธอดสร้าง)</h2>
+    <p>เมธอดสร้าง (Constructor) เป็นฟังก์ชันพิเศษที่ถูกเรียกเมื่อมีการสร้างออบเจ็กต์ใหม่ ตัวอย่างเช่น:</p>
+    <div class="code-block">
+        <pre><code>Animal() {
+    System.out.println("create animal");
+}</code></pre>
+    </div>
+    <p>ในตัวอย่างนี้ เมื่อมีการสร้างออบเจ็กต์จากคลาส <code>Animal</code> เมธอดสร้างจะถูกเรียกและแสดงข้อความ "create animal"</p>
+
+    <h2>3. Destructor (เมธอดทำลาย)</h2>
+    <p>ในภาษาเช่น C++ เมธอดทำลาย (Destructor) จะถูกเรียกเมื่อออบเจ็กต์ถูกลบออกจากหน่วยความจำ แต่ใน Java เมธอด <code>finalize()</code> จะถูกใช้แทนในบางกรณี:</p>
+    <div class="code-block">
+        <pre><code>protected void finalize() {
+    System.out.println("delete animal");
+}</code></pre>
+    </div>
+    <p>เมธอดนี้จะถูกเรียกโดย <code>System.gc()</code> ซึ่งเป็นการขอให้ Garbage Collector ลบออบเจ็กต์ที่ไม่ได้ใช้อีกต่อไป</p>
+
+    <h2>4. Inheritance (การสืบทอด)</h2>
+    <p>การสืบทอด (Inheritance) คือการสร้างคลาสใหม่จากคลาสเดิม โดยคลาสลูกจะสามารถใช้หรือปรับปรุงพฤติกรรมของคลาสพ่อแม่ได้ ในตัวอย่างนี้:</p>
+    <div class="code-block">
+        <pre><code>class Dog extends Animal {
+    Dog() {
+        System.out.println("dog");
+    }
+
+    @Override
+    void sound() {
+        System.out.println("dog barks");
+    }
+}</code></pre>
+    </div>
+    <p>คลาส <code>Dog</code> สืบทอดมาจาก <code>Animal</code> และมีการ Override เมธอด <code>sound()</code> เพื่อเปลี่ยนพฤติกรรมให้ส่งเสียงเห่าแทน</p>
+
+    <h2>5. Polymorphism (พหุสัณฐาน)</h2>
+    <p>Polymorphism หมายถึงความสามารถในการใช้เมธอดเดียวกันในคลาสที่ต่างกัน โดยที่มีพฤติกรรมต่างกันได้ ตัวอย่างคือ:</p>
+    <div class="code-block">
+        <pre><code>Animal a = new Dog();
+a.sound(); // Output: dog barks</code></pre>
+    </div>
+    <p>แม้ว่า <code>a</code> จะเป็นตัวแปรชนิด <code>Animal</code> แต่เนื่องจากมันเก็บออบเจ็กต์ชนิด <code>Dog</code> เมธอด <code>sound()</code> ที่ถูกเรียกจึงเป็นของ <code>Dog</code> ซึ่งจะพิมพ์ "dog barks"</p>
+
+    <h2>6. Overriding (การเขียนทับ)</h2>
+    <p>การเขียนทับ (Overriding) หมายถึงการที่คลาสลูกปรับเปลี่ยนการทำงานของเมธอดที่สืบทอดมาจากคลาสพ่อแม่ เช่น:</p>
+    <div class="code-block">
+        <pre><code>class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("dog barks");
+    }
+}</code></pre>
+    </div>
+    <p>เมธอด <code>sound()</code> ของคลาส <code>Dog</code> ถูกเขียนทับจากคลาส <code>Animal</code> เพื่อให้แสดงผลลัพธ์ที่แตกต่างกัน</p>
+
 
     <footer>
         © 2024 การเปรียบเทียบและการอธิบายโค้ด OOP
