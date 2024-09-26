@@ -344,10 +344,53 @@ a.sound(); // Output: dog barks</code></pre>
     </div>
     <p>เมธอด <code>sound()</code> ของคลาส <code>Dog</code> ถูกเขียนทับจากคลาส <code>Animal</code> เพื่อให้แสดงผลลัพธ์ที่แตกต่างกัน</p>
 
+<h1>ข้อ III: Abstract Class</h1>
 
-    <footer>
-        © 2024 การเปรียบเทียบและการอธิบายโค้ด OOP
-    </footer>
+    <p>ในภาษา OOP (Object-Oriented Programming) <strong>Abstract Class</strong> คือคลาสที่ไม่สามารถสร้างออบเจ็กต์โดยตรงจากมันได้ แต่ถูกออกแบบมาเพื่อเป็นแบบพิมพ์ให้กับคลาสที่สืบทอดต่อ (subclass) โดยทั่วไปแล้ว abstract class จะมีเมธอดที่ยังไม่ได้ถูกกำหนดรายละเอียดไว้ (abstract methods) เพื่อให้ซับคลาสทำการกำหนดพฤติกรรมเฉพาะของตัวเอง</p>
+
+    <h2>หลักการสร้าง Abstract Class</h2>
+    <p>การสร้าง abstract class จะทำโดยใช้คีย์เวิร์ด <code>abstract</code> ในบางภาษา เช่น Java และ C++ ใน Python จะใช้เมตาคราส (metaclass) ซึ่งคลาส abstract จะมีทั้งเมธอดปกติและเมธอด abstract ที่ไม่กำหนดพฤติกรรม</p>
+
+    <h2>ตัวอย่าง Abstract Class ในข้อ I</h2>
+    <p>ในตัวอย่างข้อ I ของคุณ ไม่มีการใช้ <em>abstract class</em> แต่เราสามารถสร้าง abstract class ได้หากต้องการให้คลาส <code>Animal</code> เป็นคลาสแม่ที่บังคับให้คลาสลูก เช่น <code>Dog</code> และ <code>Cat</code> ต้องกำหนดพฤติกรรมของเมธอด <code>sound()</code> เอง โดยไม่สามารถใช้เมธอดจาก <code>Animal</code> ได้โดยตรง</p>
+
+    <h2>ตัวอย่างการสร้าง Abstract Class ใน Java</h2>
+    <div class="code-block">
+        <code>
+            abstract class Animal { <br>
+                Animal() { <br>
+                    System.out.println("create animal"); <br>
+                } <br>
+                abstract void sound();  // เมธอด abstract ไม่มีการกำหนดพฤติกรรม <br>
+            } <br><br>
+            
+            class Dog extends Animal { <br>
+                Dog() { <br>
+                    System.out.println("dog"); <br>
+                } <br>
+                void sound() {  // กำหนดพฤติกรรมสำหรับ Dog <br>
+                    System.out.println("dog barks"); <br>
+                } <br>
+            } <br><br>
+            
+            class Cat extends Animal { <br>
+                Cat() { <br>
+                    System.out.println("cat"); <br>
+                } <br>
+                void sound() {  // กำหนดพฤติกรรมสำหรับ Cat <br>
+                    System.out.println("cat meows"); <br>
+                } <br>
+            } <br><br>
+        </code>
+    </div>
+
+    <p>ในโค้ดนี้ <code>Animal</code> เป็น abstract class ซึ่งมีเมธอด abstract <code>sound()</code> ที่ไม่มีการกำหนดพฤติกรรม คลาสลูก <code>Dog</code> และ <code>Cat</code> ต้องกำหนดพฤติกรรมของ <code>sound()</code> เอง</p>
+
+    <h2>Abstract Class ในภาษาอื่น ๆ</h2>
+    <p>ใน C++ การสร้าง abstract class จะทำได้โดยการกำหนดเมธอดบริสุทธิ์ (pure virtual function) ซึ่งคลาสลูกต้องทำการกำหนดพฤติกรรมของเมธอดนั้นเอง ส่วนใน Python การสร้าง abstract class จะใช้ <code>abc</code> (Abstract Base Class) ที่มาพร้อมกับไลบรารีมาตรฐาน</p>
+
+    <h2>สรุป</h2>
+    <p>Abstract Class ใช้เมื่อเราต้องการบังคับให้ซับคลาสกำหนดพฤติกรรมที่เฉพาะเจาะจงเอง โดยไม่ให้สามารถสร้างออบเจ็กต์จากคลาส abstract โดยตรงได้</p>
 
 </body>
 </html>
