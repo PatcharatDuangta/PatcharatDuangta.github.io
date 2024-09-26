@@ -351,9 +351,6 @@ a.sound(); // Output: dog barks</code></pre>
     <h2>หลักการสร้าง Abstract Class</h2>
     <p>การสร้าง abstract class จะทำโดยใช้คีย์เวิร์ด <code>abstract</code> ในบางภาษา เช่น Java และ C++ ใน Python จะใช้เมตาคราส (metaclass) ซึ่งคลาส abstract จะมีทั้งเมธอดปกติและเมธอด abstract ที่ไม่กำหนดพฤติกรรม</p>
 
-    <h2>ตัวอย่าง Abstract Class ในข้อ I</h2>
-    <p>ในตัวอย่างข้อ I ของคุณ ไม่มีการใช้ <em>abstract class</em> แต่เราสามารถสร้าง abstract class ได้หากต้องการให้คลาส <code>Animal</code> เป็นคลาสแม่ที่บังคับให้คลาสลูก เช่น <code>Dog</code> และ <code>Cat</code> ต้องกำหนดพฤติกรรมของเมธอด <code>sound()</code> เอง โดยไม่สามารถใช้เมธอดจาก <code>Animal</code> ได้โดยตรง</p>
-
     <h2>ตัวอย่างการสร้าง Abstract Class ใน Java</h2>
     <div class="code-block">
         <code>
@@ -383,8 +380,6 @@ a.sound(); // Output: dog barks</code></pre>
             } <br><br>
         </code>
     </div>
-
-    <p>ในโค้ดนี้ <code>Animal</code> เป็น abstract class ซึ่งมีเมธอด abstract <code>sound()</code> ที่ไม่มีการกำหนดพฤติกรรม คลาสลูก <code>Dog</code> และ <code>Cat</code> ต้องกำหนดพฤติกรรมของ <code>sound()</code> เอง</p>
 
     <h2>Abstract Class ในภาษาอื่น ๆ</h2>
     <p>ใน C++ การสร้าง abstract class จะทำได้โดยการกำหนดเมธอดบริสุทธิ์ (pure virtual function) ซึ่งคลาสลูกต้องทำการกำหนดพฤติกรรมของเมธอดนั้นเอง ส่วนใน Python การสร้าง abstract class จะใช้ <code>abc</code> (Abstract Base Class) ที่มาพร้อมกับไลบรารีมาตรฐาน</p>
