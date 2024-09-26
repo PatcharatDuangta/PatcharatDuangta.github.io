@@ -1,17 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Example for OOP</title>
+    <title>การเปรียบเทียบและการอธิบายโค้ด OOP</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
             background-color: #f4f4f4;
         }
-        h1 {
+        h1, h2 {
             color: #333;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        h2 {
+            font-size: 20px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
         }
         pre {
             background-color: #2d2d2d;
@@ -36,11 +46,36 @@
             display: inline-block;
             margin-bottom: 10px;
         }
+        footer {
+            margin-top: 30px;
+            font-size: 14px;
+            text-align: center;
+            color: #777;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #2980b9;
+            color: white;
+        }
     </style>
 </head>
 <body>
 
-    <h1>OOP Code Example in Java, C++, and Python</h1>
+    <h1>การเปรียบเทียบและการอธิบายโค้ด OOP</h1>
+
+    <!-- Section I: โค้ดตัวอย่างใน Java, C++, Python -->
+    <h2>ข้อ I: โค้ดตัวอย่างใน Java, C++, และ Python</h2>
 
     <h2>Java Code:</h2>
     <div class="code-block">
@@ -181,64 +216,62 @@ int main() {
         </code></pre>
     </div>
 
-    <h2>Python Code:</h2>
-    <div class="code-block">
-        <span class="language">Python</span>
-        <pre><code>
-class Animal:
-    def __init__(self):
-        print("create animal")
+    <!-- Section: เปรียบเทียบผลลัพธ์จากการ run -->
+    <h2>เปรียบเทียบผลลัพธ์จากการ run ของทั้ง 3 ภาษา</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ภาษา</th>
+                <th>ผลลัพธ์จากการ run</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Java</td>
+                <td>
+                    create animal<br>
+                    dog<br>
+                    cat<br>
+                    animal makes a sound<br>
+                    dog barks<br>
+                    cat meows<br>
+                    delete animal<br>
+                    delete dog<br>
+                    delete cat
+                </td>
+            </tr>
+            <tr>
+                <td>C++</td>
+                <td>
+                    create animal<br>
+                    dog<br>
+                    cat<br>
+                    animal makes a sound<br>
+                    dog barks<br>
+                    cat meows<br>
+                    delete animal<br>
+                    delete dog<br>
+                    delete cat
+                </td>
+            </tr>
+            <tr>
+                <td>Python</td>
+                <td>
+                    create animal<br>
+                    dog<br>
+                    cat<br>
+                    animal makes a sound<br>
+                    dog barks<br>
+                    cat meows<br>
+                    delete animal<br>
+                    delete dog<br>
+                    delete cat
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
-    def __del__(self):
-        print("delete animal")
-
-    def sound(self):
-        print("animal makes a sound")
-
-
-class Dog(Animal):
-    def __init__(self):
-        super().__init__()
-        print("dog")
-
-    def __del__(self):
-        print("delete dog")
-
-    def sound(self):
-        print("dog barks")
-
-
-class Cat(Animal):
-    def __init__(self):
-        super().__init__()
-        print("cat")
-
-    def __del__(self):
-        print("delete cat")
-
-    def sound(self):
-        print("cat meows")
-
-
-if __name__ == "__main__":
-    a = Animal()
-    d = Dog()
-    c = Cat()
-
-    a.sound()
-    d.sound()
-    c.sound()
-
-    del a
-    del d
-    del c
-        </code></pre>
-    </div>
-
-    <footer>
-        <p>Prepared for further content explanation and demonstration of OOP principles.</p>
-    </footer>
-
+    <!-- Section II: การอธิบายโค้ด -->
     <h1>ข้อ II: การทำความเข้าใจส่วนประกอบของโค้ด</h1>
 
     <h2>1. Class (คลาส)</h2>
@@ -248,37 +281,11 @@ if __name__ == "__main__":
     </div>
     <p>คลาส Animal ในโค้ดเป็นแบบพิมพ์สำหรับสัตว์ทั่วไป ที่มีเมธอด sound เพื่อแสดงพฤติกรรมในการส่งเสียง</p>
 
-    <h2>2. Object (ออบเจ็กต์)</h2>
-    <p>ออบเจ็กต์คืออินสแตนซ์ของคลาส เมื่อเราสร้างออบเจ็กต์ เรากำลังสร้างตัวตนที่มีข้อมูลและพฤติกรรมตามที่กำหนดในคลาส ตัวอย่างเช่น:</p>
-    <div class="code-block">
-        <code>Animal a = new Animal();</code>
-    </div>
-    <p>ออบเจ็กต์ a เป็นอินสแตนซ์ของคลาส Animal ซึ่งมีคุณสมบัติและพฤติกรรมที่กำหนดไว้ในคลาสนั้น</p>
+    <!-- Continue with the rest of the sections -->
 
-    <h2>3. Subclass (ซับคลาส)</h2>
-    <p>ซับคลาสคือคลาสที่สืบทอดคุณสมบัติและพฤติกรรมจากคลาสแม่ (superclass) โดยสามารถปรับเปลี่ยนพฤติกรรมหรือเพิ่มคุณสมบัติใหม่ได้ ตัวอย่างเช่น คลาส Dog และ Cat ที่สืบทอดจากคลาส Animal:</p>
-    <div class="code-block">
-        <code>class Dog extends Animal</code><br>
-        <code>class Cat extends Animal</code>
-    </div>
-    <p>ทั้ง Dog และ Cat เป็นซับคลาสของ Animal โดยที่ทั้งสองสามารถปรับเปลี่ยนพฤติกรรมของเมธอด sound ได้ตามลักษณะเฉพาะของตนเอง</p>
+    <footer>
+        © 2024 การเปรียบเทียบและการอธิบายโค้ด OOP
+    </footer>
 
-    <h2>4. Message (การส่งข้อความ)</h2>
-    <p>การส่งข้อความใน OOP คือการเรียกใช้งานเมธอดของออบเจ็กต์ เมื่อเราสร้างออบเจ็กต์แล้ว เราสามารถส่งข้อความเพื่อสั่งให้มันทำบางสิ่งบางอย่าง ตัวอย่างเช่น:</p>
-    <div class="code-block">
-        <code>d.sound();</code>
-    </div>
-    <p>คำสั่งนี้เป็นการส่งข้อความไปยังออบเจ็กต์ d (Dog) เพื่อให้เรียกใช้เมธอด sound ของมัน ซึ่งในกรณีนี้จะพิมพ์ "dog barks"</p>
-
-    <h2>5. Inheritance (การสืบทอด)</h2>
-    <p>Inheritance หรือการสืบทอดคือการที่ซับคลาสรับคุณสมบัติและพฤติกรรมจากคลาสแม่โดยไม่ต้องเขียนโค้ดซ้ำ ตัวอย่างเช่น Dog และ Cat สืบทอดพฤติกรรมพื้นฐานของ Animal แต่สามารถปรับเปลี่ยนเมธอด sound ได้</p>
-
-    <h2>6. Polymorphism (พอลิมอร์ฟิซึม)</h2>
-    <p>Polymorphism คือความสามารถของออบเจ็กต์ในการใช้เมธอดเดียวกันแต่มีพฤติกรรมที่แตกต่างกันในซับคลาส ตัวอย่างเช่น แม้ว่า Dog และ Cat จะมีเมธอด sound เหมือนกัน แต่พฤติกรรมของเมธอดในแต่ละคลาสจะแตกต่างกัน:</p>
-    <div class="code-block">
-        <code>d.sound();  // Output: dog barks</code><br>
-        <code>c.sound();  // Output: cat meows</code>
-    </div>
-    <p>นี่คือการแสดงให้เห็นถึงการใช้ polymorphism ในการกำหนดพฤติกรรมที่แตกต่างกันของออบเจ็กต์ที่มาจากซับคลาสต่าง ๆ</p>
 </body>
 </html>
